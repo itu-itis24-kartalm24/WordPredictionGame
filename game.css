@@ -24,11 +24,17 @@ h1 {
 }
 
 .word-box {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     background-color: white;
-    border: 2px solid #ccc;
+    border: 2px solid #333;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: transparent;
 }
 
 .prediction-section {
@@ -37,27 +43,41 @@ h1 {
 
 label {
     margin-right: 10px;
+    font-size: 16px;
 }
 
 input[type="text"] {
-    padding: 8px;
+    padding: 8px 12px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 4px;
     margin-right: 10px;
+    width: 120px;
 }
 
 button {
     padding: 8px 20px;
     font-size: 16px;
-    background-color: #4CAF50;
     color: white;
+    border: none;
     border-radius: 4px;
-    cursor: pointer;
+    margin: 0 5px;
 }
 
-button:hover {
-    background-color: #45a049;
+#submit {
+    background-color: #4eb551;
+}
+
+#submit:hover {
+    background-color: #3e9542;
+}
+
+#reset {
+    background-color: #f4463a;
+}
+
+#reset:hover {
+    background-color: #cc1508;
 }
 
 .game-stats {
@@ -68,8 +88,9 @@ button:hover {
 }
 
 .score, .lives {
-    padding: 10px;
+    padding: 10px 20px;
     background-color: white;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    min-width: 120px;
 } 

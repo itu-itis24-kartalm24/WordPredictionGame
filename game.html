@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word Prediction Game</title>
     <link rel="stylesheet" href="game.css">
 </head>
@@ -10,17 +11,18 @@
         <h1>Word Prediction Game</h1>
         
         <div class="word-container">
-            <div class="word-box"></div>
-            <div class="word-box"></div>
-            <div class="word-box"></div>
-            <div class="word-box"></div>
-            <div class="word-box"></div>
+            <div class="word-box" id="box0">A</div>
+            <div class="word-box" id="box1">D</div>
+            <div class="word-box" id="box2">I</div>
+            <div class="word-box" id="box3">E</div>
+            <div class="word-box" id="box4">U</div>
         </div>
 
         <div class="prediction-section">
             <label for="prediction">Prediction:</label>
-            <input type="text" id="prediction" name="prediction">
+            <input type="text" id="prediction" name="prediction" maxlength="5">
             <button id="submit">Submit</button>
+            <button id="reset">Reset Game</button>
         </div>
 
         <div class="game-stats">
@@ -28,5 +30,6 @@
             <div class="lives">Lives: <span id="lives">❤️ ❤️ ❤️</span></div>
         </div>
     </div>
+    <script src="game.js"></script>
 </body>
 </html> 
