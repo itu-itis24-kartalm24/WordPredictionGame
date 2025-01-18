@@ -22,10 +22,9 @@ body {
     border: 1px solid #3d3d3d;
 }
 
-h1 {
+h1, h2 {
     color: #e67e22;
     margin-bottom: 30px;
-    font-size: 2.5em;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
@@ -34,10 +33,19 @@ h1 {
 
 .profile-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
     padding: 20px;
     text-align: left;
+    margin-bottom: 40px;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
 }
 
 .profile-photo {
@@ -47,7 +55,6 @@ h1 {
     object-fit: cover;
     border: 4px solid #e67e22;
     box-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
-    flex-shrink: 0;
 }
 
 .bio-container {
@@ -65,6 +72,64 @@ p {
     font-size: 1.1em;
 }
 
+.skills-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.skill-block {
+    background-color: #363636;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid #444;
+}
+
+.skill-image {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.skill-content {
+    flex-grow: 1;
+}
+
+.skill-name {
+    display: block;
+    font-size: 1.1em;
+    color: #fff;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.skill-bar {
+    height: 8px;
+    background-color: #2d2d2d;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #444;
+}
+
+.skill-progress {
+    height: 100%;
+    background-color: #e67e22;
+    border-radius: 4px;
+    position: relative;
+}
+
 .play-button {
     display: inline-block;
     padding: 15px 40px;
@@ -78,9 +143,10 @@ p {
     letter-spacing: 1px;
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    width: fit-content;
 }
 
-.play-button:hover {
+.play-button:hover{
     background-color: transparent;
     border-color: #e67e22;
 }
