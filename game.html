@@ -8,26 +8,30 @@
 </head>
 <body>
     <div class="container">
-        <h1>Word Prediction Game</h1>
-        
-        <div class="word-container">
-            <div class="word-box" id="box0">A</div>
-            <div class="word-box" id="box1">D</div>
-            <div class="word-box" id="box2">I</div>
-            <div class="word-box" id="box3">E</div>
-            <div class="word-box" id="box4">U</div>
-        </div>
+        <div class="game-container">
+            <h1>Word Prediction Game</h1>
+            
+            <div class="word-container">
+                <div class="word-box" id="box0">A</div>
+                <div class="word-box" id="box1">D</div>
+                <div class="word-box" id="box2">I</div>
+                <div class="word-box" id="box3">E</div>
+                <div class="word-box" id="box4">U</div>
+            </div>
 
-        <div class="prediction-section">
-            <label for="prediction">Prediction:</label>
-            <input type="text" id="prediction" name="prediction" maxlength="5">
-            <button id="submit">Submit</button>
-            <button id="reset">Reset Game</button>
-        </div>
+            <div class="prediction-section">
+                <div class="input-row">
+                    <label for="prediction">Prediction:</label>
+                    <input type="text" id="prediction" name="prediction" maxlength="5">
+                </div>
+                <button id="submit">Submit</button>
+                <button id="reset">Reset Game</button>
+            </div>
 
-        <div class="game-stats">
-            <div class="score">Score: <span id="score">0</span></div>
-            <div class="lives">Lives: <span id="lives">❤️ ❤️ ❤️</span></div>
+            <div class="game-stats">
+                <div class="score">Score: <span id="score">0</span></div>
+                <div class="lives">Lives: <span id="lives">❤️ ❤️ ❤️</span></div>
+            </div>
         </div>
     </div>
     <script src="game.js"></script>

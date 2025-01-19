@@ -51,7 +51,7 @@ function handleGuess() {
     const guess = predictionInput.value.toUpperCase();
     predictionInput.value = '';
 
-    if (!gameStarted) {
+    if (!gameStarted && guess !== '') {
         gameStarted = true;
         resetButton.style.display = 'inline-block';
     }
@@ -61,8 +61,10 @@ function handleGuess() {
             boxes.forEach(box => {
                 box.style.color = 'black';
             });
-            alert('Congratulations! You won! Your score: ' + score);
-            resetGame();
+            setTimeout(() => {
+                alert('Congratulations! You won! Your score: ' + score);
+                resetGame();
+            }, 1000);
         } else {
             lives = 0;
             updateLives();
@@ -83,8 +85,10 @@ function handleGuess() {
             }
 
             if (checkWin()) {
-                alert('Congratulations! You won! Your score: ' + score);
-                resetGame();
+                setTimeout(() => {
+                    alert('Congratulations! You won! Your score: ' + score);
+                    resetGame();
+                }, 100);
             }
         } else {
             lives--;

@@ -18,17 +18,27 @@ body {
     padding: 40px;
     border-radius: 12px;
     margin-bottom: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 h1, h2 {
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     letter-spacing: -0.02em;
     font-weight: 600;
     position: relative;
     display: inline-block;
     text-transform: none;
+}
+
+h1::after, h2::after {
+    content: '';
+    display: block;
+    width: 500px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.35);
+    margin: 20px auto 30px;
+    position: relative;
 }
 
 .profile-section {
@@ -53,14 +63,14 @@ h1, h2 {
     height: 250px;
     border-radius: 12px;
     object-fit: cover;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
 .bio-container {
     background-color: #18181b;
     padding: 25px;
     border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     flex-grow: 1;
 }
 
@@ -91,12 +101,12 @@ p {
     display: flex;
     align-items: center;
     gap: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     transition: border-color 0.2s ease;
 }
 
 .skill-block:hover {
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .skill-image {
@@ -169,13 +179,13 @@ p {
     width: 40px;
     height: 40px;
     background-color: #18181b;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 8px;
 }
 
 .social-link:hover {
     background-color: #27272a;
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .social-icon {
