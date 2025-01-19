@@ -1,8 +1,8 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a;
+    background-color: #000;
     color: #ffffff;
 }
 
@@ -14,21 +14,21 @@ body {
 }
 
 .about-section {
-    background-color: #2d2d2d;
+    background-color: #111111;
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 12px;
     margin-bottom: 40px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid #3d3d3d;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 h1, h2 {
-    color: #e67e22;
+    color: #fff;
     margin-bottom: 30px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: -0.02em;
+    font-weight: 600;
     position: relative;
     display: inline-block;
+    text-transform: none;
 }
 
 .profile-section {
@@ -51,25 +51,24 @@ h1, h2 {
 .profile-photo {
     width: 250px;
     height: 250px;
-    border-radius: 50%;
+    border-radius: 12px;
     object-fit: cover;
-    border: 4px solid #e67e22;
-    box-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bio-container {
-    background-color: #363636;
+    background-color: #18181b;
     padding: 25px;
-    border-radius: 10px;
-    border: 1px solid #444;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     flex-grow: 1;
 }
 
 p {
-    color: #cccccc;
+    color: #e3e3e7;
     line-height: 1.6;
     margin: 0;
-    font-size: 1.1em;
+    font-size: 1rem;
 }
 
 .skills-container {
@@ -81,25 +80,31 @@ p {
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 16px;
     margin-top: 30px;
 }
 
 .skill-block {
-    background-color: #363636;
-    border-radius: 10px;
-    padding: 20px;
+    background-color: #18181b;
+    border-radius: 8px;
+    padding: 16px;
     display: flex;
     align-items: center;
     gap: 15px;
-    border: 1px solid #444;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.2s ease;
+}
+
+.skill-block:hover {
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .skill-image {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
     object-fit: contain;
-    border-radius: 8px;
+    border-radius: 6px;
+    filter: grayscale(20%);
 }
 
 .skill-content {
@@ -108,45 +113,77 @@ p {
 
 .skill-name {
     display: block;
-    font-size: 1.1em;
+    font-size: 0.95rem;
     color: #fff;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     font-weight: 500;
     text-align: left;
 }
 
 .skill-bar {
-    height: 8px;
-    background-color: #2d2d2d;
-    border-radius: 4px;
+    height: 6px;
+    background-color: #27272a;
+    border-radius: 3px;
     overflow: hidden;
-    border: 1px solid #444;
 }
 
 .skill-progress {
     height: 100%;
-    background-color: #e67e22;
-    border-radius: 4px;
+    background-color: #fff;
+    border-radius: 3px;
     position: relative;
+    opacity: 0.8;
 }
 
 .play-button {
     display: inline-block;
-    padding: 15px 40px;
-    background-color: #e67e22;
-    color: white;
+    padding: 12px 24px;
+    background-color: #fff;
+    color: #000;
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    font-size: 1.2em;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
     width: fit-content;
 }
 
-.play-button:hover{
+.play-button:hover {
     background-color: transparent;
-    border-color: #e67e22;
+    border-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #18181b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+.social-link:hover {
+    background-color: #27272a;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-icon {
+    width: 20px;
+    height: 20px;
+    opacity: 0.8;
+}
+
+.social-link:hover .social-icon {
+    opacity: 1;
 }
