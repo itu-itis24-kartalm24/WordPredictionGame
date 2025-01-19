@@ -245,5 +245,5 @@ button:hover {
 }
 
 .heart-icon.inactive {
-    filter: brightness(0.5);
+    filter: brightness(0.4);
 }

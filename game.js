@@ -4,6 +4,7 @@ let score = 0;
 let lives = 3;
 let gameStarted = false;
 let isCross = false;
+let gameStatus = 0;
 
 const boxes = document.querySelectorAll('.word-box');
 const letterImages = document.querySelectorAll('.letter-image');
@@ -114,31 +115,55 @@ function showCrossesTemporarily() {
 function decrementLives() {
     lives--;
     updateLives();
-    showCrossesTemporarily();
     if (lives === 0) {
-        handleGameOver('Game Over!');
+        handleGameOver('Game over!');
+        return;
     }
+    showCrossesTemporarily();
 }
 
 function showWinMessage() {
+    gameStatus = 1;
     setTimeout(() => {
         alert('Congratulations! You won! Your score: ' + score);
-        resetGame();
     }, 100);
+}
+
+function showCrossesOnGameOver() {
+    const boxes = document.querySelectorAll('.word-box');
+    boxes.forEach((box, index) => {
+        if (!revealedLetters.has(index)) {
+            const cross = box.querySelector('.cross-image');
+            cross.style.opacity = '1';
+        }
+    });
 }
 
 function handleGameOver(message) {
     lives = 0;
     updateLives();
-    alert(message + ' Your score: ' + score);
-    resetGame();
+    showCrossesOnGameOver();
+    alert(message + 'You have lost the game! Your score: ' + score);
+    gameStatus = 2;
 }
 
 function handleInvalidGuess() {
     alert('Invalid guess! Please enter a single letter or the full word (5 letters).');
 }
 
+function handleGameStatus(){
+    if(gameStatus === 1){
+        alert('You have already won the game! Press restart button to play again.');
+        return true;
+    }else if(gameStatus === 2){
+        alert('You have already lost the game! Press restart button to try it again.');
+        return true;
+    }
+    return false;
+}
+
 function resetGame() {
+    gameStatus = 0;
     handleResetStyling();
     hideLetters();
     document.querySelectorAll('.cross-image').forEach(cross => {
@@ -155,12 +180,13 @@ function resetGame() {
 }
 
 function handleGuess() {
-    if (isCross ) 
+    if (isCross) 
         return;
     
     const guess = predictionInput.value.toUpperCase();
     predictionInput.value = '';
 
+    if(handleGameStatus()) return;
     if(guess.length !== 1 && guess.length !== currentWord.length){
         handleInvalidGuess();
         return;

@@ -66,19 +66,37 @@ h1::after, h2::after {
     border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex-grow: 1;
+}
+
 .bio-container {
     background-color: #18181b;
     padding: 25px;
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.35);
-    flex-grow: 1;
 }
 
-p {
+.bio-container h3 {
+    color: #fff;
+    margin: 0 0 16px 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+}
+
+.bio-container p {
     color: #e3e3e7;
     line-height: 1.6;
     margin: 0;
     font-size: 1rem;
+}
+
+.bio-container p + p {
+    margin-top: 12px;
 }
 
 .skills-container {
