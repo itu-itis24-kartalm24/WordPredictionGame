@@ -148,16 +148,87 @@ button:hover {
 
 .game-stats {
     display: flex;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    padding: 0 100px;
     font-size: 0.95rem;
 }
 
-.score, .lives {
+.score {
     padding: 16px 24px;
     background-color: #18181b;
     border: 1px solid rgba(255, 255, 255, 0.35);
     border-radius: 8px;
     min-width: 120px;
     color: #e3e3e7;
-} 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.score-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.score-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+#score {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.lives {
+    padding: 16px 24px;
+    background-color: #18181b;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 8px;
+    min-width: 120px;
+    color: #e3e3e7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.lives-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.lives-title::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.35);
+}
+
+#lives {
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+}
+
+.heart-icon.inactive {
+    filter: brightness(0.5);
+}

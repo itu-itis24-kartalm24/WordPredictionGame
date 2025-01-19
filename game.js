@@ -15,11 +15,14 @@ const livesDisplay = document.getElementById('lives');
 resetButton.style.display = 'none';
 
 function updateLives() {
-    let livesString = ''
-    for (let i = 0; i < lives; i++) {
-        livesString += '❤️ ';
-    }
-    livesDisplay.textContent = livesString;
+    const hearts = livesDisplay.querySelectorAll('.heart-icon');
+    hearts.forEach((heart, index) => {
+        if (index < lives) {
+            heart.classList.remove('inactive');
+        } else {
+            heart.classList.add('inactive');
+        }
+    });
 }
 
 function updateScore() {
