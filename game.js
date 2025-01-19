@@ -1,10 +1,11 @@
-const word = "ADIEU";
+let currentWord = 'ADIEU';
+let revealedLetters = new Set();
 let score = 0;
 let lives = 3;
-let revealedLetters = new Set();
 let gameStarted = false;
 
 const boxes = document.querySelectorAll('.word-box');
+const letterImages = document.querySelectorAll('.letter-image');
 const submitButton = document.getElementById('submit');
 const resetButton = document.getElementById('reset');
 const predictionInput = document.getElementById('prediction');
@@ -12,12 +13,6 @@ const scoreDisplay = document.getElementById('score');
 const livesDisplay = document.getElementById('lives');
 
 resetButton.style.display = 'none';
-
-function hideLetters() {
-    boxes.forEach(box => {
-        box.style.color = 'transparent';
-    });
-}
 
 function updateLives() {
     let livesString = ''
@@ -32,14 +27,27 @@ function updateScore() {
 }
 
 function checkWin() {
-    return revealedLetters.size === word.length;
+    return revealedLetters.size === currentWord.length;
+}
+
+function hideLetters() {
+    letterImages.forEach(img => {
+        img.style.opacity = '0';
+    });
+}
+
+function showLetters() {
+    letterImages.forEach(img => {
+        img.style.opacity = '1';
+    });
 }
 
 function resetGame() {
+    hideLetters();
     score = 0;
+    revealedLetters.clear();
     lives = 3;
     gameStarted = false;
-    revealedLetters = new Set();
     hideLetters();
     updateScore();
     updateLives();
@@ -56,11 +64,9 @@ function handleGuess() {
         resetButton.style.display = 'inline-block';
     }
 
-    if (guess.length === word.length) {
-        if (guess === word) {
-            boxes.forEach(box => {
-                box.style.color = 'black';
-            });
+    if (guess.length === currentWord.length) {
+        if (guess === currentWord) {
+            showLetters();
             setTimeout(() => {
                 alert('Congratulations! You won! Your score: ' + score);
                 resetGame();
@@ -75,20 +81,21 @@ function handleGuess() {
     }
 
     if (guess.length === 1) {
-        if (word.includes(guess)) {
-            let i = word.indexOf(guess);
-            boxes[i].style.color = 'black';
+        if (currentWord.includes(guess)) {
+            let i = currentWord.indexOf(guess);
             if (!revealedLetters.has(i)) {
                 revealedLetters.add(i);
                 score += 20;
                 updateScore();
-            }
+                const letterImage = document.querySelector(`#box${i} .letter-image`);
+                letterImage.style.opacity = '1';
 
-            if (checkWin()) {
-                setTimeout(() => {
-                    alert('Congratulations! You won! Your score: ' + score);
-                    resetGame();
-                }, 100);
+                if (checkWin()) {
+                    setTimeout(() => {
+                        alert('Congratulations! You won! Your score: ' + score);
+                        resetGame();
+                    }, 100);
+                }
             }
         } else {
             lives--;
@@ -103,8 +110,8 @@ function handleGuess() {
 
 submitButton.addEventListener('click', handleGuess);
 resetButton.addEventListener('click', resetGame);
-predictionInput.addEventListener('keyup', (event) => {
-    if (event.key === 'Enter') {
+predictionInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
         handleGuess();
     }
 });

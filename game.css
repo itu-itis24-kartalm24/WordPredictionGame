@@ -56,9 +56,16 @@ h1::after {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 32px;
-    font-weight: 500;
-    color: #fff;
+    padding: 12px;
+}
+
+.letter-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    filter: invert(1);
+    transition: opacity 0.3s ease;
 }
 
 .prediction-section {
